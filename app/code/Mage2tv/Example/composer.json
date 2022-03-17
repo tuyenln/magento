@@ -1,5 +1,5 @@
 {
-    "name": "mage2tv/module-empty",
+    "name": "mage2tv/module-example",
     "description": "N/A",
     "type": "magento2-module",
     "license": [
@@ -13,7 +13,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Mage2tv\\Empty\\": ""
+            "Mage2tv\\Example\\": ""
         }
     }
 }

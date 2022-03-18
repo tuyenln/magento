@@ -1,0 +1,21 @@
+{
+    "name": "mage2tv/module-brand-example",
+    "description": "N/A",
+    "type": "magento2-module",
+    "license": [
+        "BDS-3-Clause"
+    ],
+    "require": {
+        "php": "~7.2.0||~7.4.0",
+        "magento/module-store": "^101.1.3 | ^100.0.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mage2tv\\BrandExample\\": ""
+        }
+    }
+}
+

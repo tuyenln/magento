@@ -1,0 +1,19 @@
+{
+    "mage2tv_brand_example": {
+        "column": {
+            "id": true,
+            "name": true,
+            "description": true,
+            "is_enabled": true,
+            "weighting_factor": true,
+            "website_id": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "MAGE2TV_BRAND_EXAMPLE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true,
+            "MAGE2TV_BRAND_EXAMPLE_NAME": true
+        }
+    }
+}

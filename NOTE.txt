@@ -21,3 +21,36 @@ Plugins impossible on:
 + object instantiated with new (without ObjectManager)
 + virtual types
 + objects that are instantiated before Magento\Framework\Interception is bootstrapped
+
+
+===============================
+Declarative Schema
+php -d memory_limit=-1 bin/magento setup:db-declaration:generate-whitelist --module-name=Mage2tv_BrandExample
+php -d memory_limit=-1 bin/magento setup:upgrade --dry-run=1
+
+php -d memory_limit=-1 bin/magento setup:db-declaration:generate-whitelist --module-name=Mage2tv_BrandExample
+
+php -d memory_limit=-1 bin/magento setup:upgrade --dry-run=1
+
+php -d memory_limit=-1 bin/magento setup:upgrade --keep-generated --dry-run=1
+
+php -d memory_limit=-1 bin/magento setup:upgrade --keep-generated
+
+When delete schema database xml
+php -d memory_limit=-1 bin/magento setup:upgrade --safe-mode=1
+
+Restore field removed
+php -d memory_limit=-1 bin/magento setup:upgrade --data-restore=1 --safe-mode=1
+
+STEP to remove a module with it's DB tables:
+1. Deactivate the module in the development environment and run setup:upgrade
+2 Commit app/etc/config.php
+3. Deploy to intermediate systems like integration or staging (if any) setup:upgrade each time
+4. Deploy app/etc/config.php to production
+5. Run bin/magento setup:upgrade on production
+6. Remove the module source code in development
+7. Commit deleting the files
+8. Deploy to each system
+
+
+

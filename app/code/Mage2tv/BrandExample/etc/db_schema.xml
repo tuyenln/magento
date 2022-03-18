@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="mage2tv_brand_example" resource="default" engine="innodb" comment="Mage2 TV example brand table" charset="utf8" collation="utf8_general_ci">
+        <column name="id" xsi:type="int" padding="11" identity="true" unsigned="true" nullable="false" comment="Brand ID" />
+        <column name="name" xsi:type="varchar" length="124" nullable="true" comment="Brand Name" />
+        <column name="description" xsi:type="text" nullable="true" comment="Description" />
+        <column name="is_enabled" xsi:type="boolean" nullable="false" default="0" comment="Is the Brand enabled ?" />
+        <column name="weighting_factor" xsi:type="decimal" precision="5" nullable="false" scale="4" comment="Search weighting factor" />
+        <column name="website_id" xsi:type="smallint" padding="5" unsigned="true" nullable="false" comment="Brand website id" />
+        <column name="created_at" xsi:type="timestamp" default="CURRENT_TIMESTAMP" />
+        <column name="updated_at" xsi:type="timestamp" default="CURRENT_TIMESTAMP" on_update="true" nullable="true" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="MAGE2TV_BRAND_EXAMPLE_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID" column="website_id" onDelete="CASCADE" referenceTable="store_website" referenceColumn="website_id" />
+        <constraint xsi:type="unique" referenceId="MAGE2TV_BRAND_EXAMPLE_NAME">
+            <column name="name" />
+        </constraint>
+    </table>
+</schema>

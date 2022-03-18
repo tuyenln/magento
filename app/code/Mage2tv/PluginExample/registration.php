@@ -6,4 +6,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Mage2tv_ProductImageFromAmount', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Mage2tv_PluginExample', __DIR__);

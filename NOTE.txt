@@ -1,0 +1,19 @@
+Plugin:
+Plugins possible on:
++ public methods
++ object instantiated by the ObjectManager
++ classes, interfaces, abstract classes, parent classes
+
+IMPLEMENTATION:
+declare in DI.xml create method on php class with reference to original class parameters is origin class are subject and parameters on origin method
+EX: public function beforeGetById(ProductRepositoryInterface $subject, $productId, $editMode = false, $storeId = null, $forceReload = false)
+
+
+Plugins impossible on:
++ final methods or final classes
++ protected or private methods
++ static methods
++ __construct
++ object instantiated with new (without ObjectManager)
++ virtual types
++ objects that are instantiated before Magento\Framework\Interception is bootstrapped

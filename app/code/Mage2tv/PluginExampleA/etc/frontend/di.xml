@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
-        <plugin name="mage2tv_pluginExample" type="Mage2tv\PluginExample\Plugin\PluginRepositotyExamplePlugin"/>
+    <type name="Magento\Customer\Controller\Account\Index">
+        <plugin name="mage2tv_pluginExampleA" type="Mage2tv\PluginExampleA\Plugin\PluginA"  />
     </type>
 </config>

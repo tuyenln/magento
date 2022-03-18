@@ -9,6 +9,10 @@ declare in DI.xml create method on php class with reference to original class pa
 EX: public function beforeGetById(ProductRepositoryInterface $subject, $productId, $editMode = false, $storeId = null, $forceReload = false)
 
 
+pseudo code:
+public function afterGetById(subject, result)
+
+
 Plugins impossible on:
 + final methods or final classes
 + protected or private methods

@@ -18,12 +18,9 @@ class UpgradeSchema implements UpgradeSchemaInterface
     {
        $setup->startSetup();
        $tableName = 'mage2tv_example';
-       $setup->getConnection->addIndex(
-           $setup->getTable($tableName),
-           $setup->getIdxName($tableName, [ 'store_id'], AdapterInterface::INDEX_TYPE_UNIQUE),
-           ['store_id'],
-           AdapterInterface::INDEX_TYPE_UNIQUE
-       );
+      $setup->getConnection()->dropColumn(
+            $setup->getTable($tableName), 'description'
+      );
 
        $setup->endSetup();
     }

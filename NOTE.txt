@@ -52,5 +52,12 @@ STEP to remove a module with it's DB tables:
 7. Commit deleting the files
 8. Deploy to each system
 
+=====================================
+SETUP SCRIPT
+
+uninstall php -d memory_limit=-1 bin/magento module:uninstall --remove-data Mage2tv_Example
 
 
+composer config repositories.mage2tv-example path local-repo/Mage2tv/Example
+composer require mage2tv/module-example:dev-master
+COMPOSER_MEMORY_LIMIT=-1 composer1 require mage2tv/module-example:dev-master

@@ -2,6 +2,7 @@
 
 namespace Mage2tv\Example\Setup;
 
+use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
@@ -16,26 +17,13 @@ class UpgradeSchema implements UpgradeSchemaInterface
     public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
        $setup->startSetup();
-       $tableName = 'mage2_example';
-       $newTableName = 'mage2tv_example';
-       $setup->getConnection()->renameTable(
+       $tableName = 'mage2tv_example';
+       $setup->getConnection->addIndex(
            $setup->getTable($tableName),
-           $setup->getTable($newTableName)
+           $setup->getIdxName($tableName, [ 'store_id'], AdapterInterface::INDEX_TYPE_UNIQUE),
+           ['store_id'],
+           AdapterInterface::INDEX_TYPE_UNIQUE
        );
-//       $setup->getConnection()->changeColumn($setup->getTable($tableName), $columnName, $columnName, [
-//           'type' => Table::TYPE_TEXT,
-//           'length' => $maxLength,
-//           'nullable' => true,
-//           'after' => 'description',
-//           'comment' => 'Image URL'
-//       ]);
-//       $setup->getConnection()->addColumn($setup->getTable($tableName), $columnName, [
-//           'type' => Table::TYPE_TEXT,
-//           'length' => 255,
-//           'nullable' => true,
-//           'after' => 'description',
-//           'comment' => 'Image URL'
-//       ]);
 
        $setup->endSetup();
     }

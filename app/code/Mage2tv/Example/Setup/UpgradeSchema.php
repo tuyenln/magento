@@ -18,13 +18,21 @@ class UpgradeSchema implements UpgradeSchemaInterface
        $setup->startSetup();
        $tableName = 'mage2_example';
        $columnName = 'image_url';
-       $setup->getConnection()->addColumn($setup->getTable($tableName), $columnName, [
+       $maxLength = 512;
+       $setup->getConnection()->changeColumn($setup->getTable($tableName), $columnName, $columnName, [
            'type' => Table::TYPE_TEXT,
-           'length' => 255,
+           'length' => $maxLength,
            'nullable' => true,
            'after' => 'description',
            'comment' => 'Image URL'
        ]);
+//       $setup->getConnection()->addColumn($setup->getTable($tableName), $columnName, [
+//           'type' => Table::TYPE_TEXT,
+//           'length' => 255,
+//           'nullable' => true,
+//           'after' => 'description',
+//           'comment' => 'Image URL'
+//       ]);
 
        $setup->endSetup();
     }

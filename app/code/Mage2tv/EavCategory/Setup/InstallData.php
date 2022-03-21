@@ -30,7 +30,7 @@ class InstallData implements InstallDataInterface
         $eavSetup->addAttribute($entityType, $attributeCode, [
             'label' => 'External Id',
             'user_defined' => 1,
-            'unique' => 1
+            'unique' => 1,
         ]);
 
         $setId = $eavSetup->getDefaultAttributeSetId($entityType);

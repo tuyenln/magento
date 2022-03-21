@@ -1,10 +1,11 @@
 <?php
 
-namespace Mage2tv\EavCategory\Setup;
+namespace Mage2tv\EavCustomer\Setup;
 
 
 use Magento\Customer\Api\CustomerMetadataInterface;
 use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Eav\Model\Config as EavConfig;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
@@ -16,9 +17,15 @@ class InstallData implements InstallDataInterface
      */
     private $eavSetupFactory;
 
-    public function __construct(EavSetupFactory $eavSetupFactory)
+    /**
+     * @var EavConfig
+     */
+    private $eavConfig;
+
+    public function __construct(EavSetupFactory $eavSetupFactory, EavConfig $eavConfig)
     {
         $this->eavSetupFactory = $eavSetupFactory;
+        $this->eavConfig = $eavConfig;
     }
 
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
@@ -36,8 +43,20 @@ class InstallData implements InstallDataInterface
             'position' => 100,
         ]);
 
-        $setId = $eavSetup->getDefaultAttributeSetId($entityType);
-        $groupId = $eavSetup->getDefaultAttributeGroupId($entityType, $setId);
-        $eavSetup->addAttributeToSet($entityType, $setId, $groupId, $attributeCode);
+        $eavSetup->addAttributeToSet(
+            $entityType,
+            CustomerMetadataInterface::ATTRIBUTE_SET_ID_CUSTOMER,
+            null,
+            $attributeCode
+        );
+
+        $attribute = $this->eavConfig->getAttribute($entityType, $attributeCode);
+        $attribute->setData('used_in_forms', [
+            'adminhtml_customer',
+            'customer_account_create',
+            'customer_acount_edit'
+        ]);
+        $attribute->save();
+//        $attribute->getResource()->save($attribute);
     }
 }

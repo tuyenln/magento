@@ -1,6 +1,6 @@
 <?php
 
-namespace Mage2tv\EavCategory\Setup;
+namespace Mage2tv\EavCustomer\Setup;
 
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;

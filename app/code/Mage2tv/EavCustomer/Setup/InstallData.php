@@ -123,6 +123,10 @@ class InstallData implements InstallDataInterface
             'customer_account_create',
             'customer_acount_edit'
         ]);
+        $attribute->setData('validate_rules', [
+            'min_text_length' => 3,
+            'max_text_length' => 10
+        ]);
         $attribute->save();
     }
 }

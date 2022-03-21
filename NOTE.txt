@@ -68,3 +68,7 @@ COMPOSER_MEMORY_LIMIT=-1 composer1 require mage2tv/module-example:dev-master
 EAV
 
 Module-eav/Model/Entity/Setup/PropertyMapper check when create custom eav atribute
+
+Add eav attribute to category:
++ In setup/InstallData
++ Create view/adminhtml/ui_component/category_form.xml

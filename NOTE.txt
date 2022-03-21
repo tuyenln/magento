@@ -61,3 +61,10 @@ uninstall php -d memory_limit=-1 bin/magento module:uninstall --remove-data Mage
 composer config repositories.mage2tv-example path local-repo/Mage2tv/Example
 composer require mage2tv/module-example:dev-master
 COMPOSER_MEMORY_LIMIT=-1 composer1 require mage2tv/module-example:dev-master
+
+
+=======================================
+
+EAV
+
+Module-eav/Model/Entity/Setup/PropertyMapper check when create custom eav atribute

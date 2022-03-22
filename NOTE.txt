@@ -72,3 +72,10 @@ Module-eav/Model/Entity/Setup/PropertyMapper check when create custom eav atribu
 Add eav attribute to category:
 + In setup/InstallData
 + Create view/adminhtml/ui_component/category_form.xml
+
+
+Table eav_attribute store common info  EAV Entity (product, customer, customer address…). Each Entity have different data structure  Ex:  “Used in layered navigation” worrking with products, other entity as customer… not working.
+
+=> Other proproperties only work for catalog entity (product, category) store on catalog_eav_attribute. Each row on  catalog_eav_attribute linked with mapping row on eav_attribute. linked by  attribute_id.
+
+For customer table customer_eav_attribute  store other properties for customer attribute.
